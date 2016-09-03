@@ -3,6 +3,7 @@ package edu.up.cs301.campusmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import java.util.Random; //for random colors
 
 /**
  * <!-- class SimpleMapToken -->
@@ -11,7 +12,7 @@ import android.graphics.Paint;
  *
  * @author Andrew M. Nuxoll
  * @author Steven R. Vegdahl
- * @author <your name here>
+ * @author Liz Frick
  * @version August 2015
  */
 public class SimpleMapToken {
@@ -31,7 +32,10 @@ public class SimpleMapToken {
         y = yCoord;
         radius = 15;
         paint = new Paint();
-        paint.setColor(Color.BLACK);
+        //randomize colors
+        Random rand = new Random();//gives random values
+        paint.setARGB(255, rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
+
     }//ctor
 
     /**
@@ -39,6 +43,8 @@ public class SimpleMapToken {
      */
     public void drawOn(Canvas canvas) {
         canvas.drawCircle(x, y, radius, paint);
+        //draw square instead of circle
+
     }//drawOn
 
 }//class SimpleMapToken
